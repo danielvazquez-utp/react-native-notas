@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LoginScreen from './screens/LoginScreen';
 import MenuScreen from './screens/MenuScreen';
 import StudentScreen from './screens/StudentScreen';
+import ImageScreen from './screens/ImageScreen';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 
@@ -53,7 +54,28 @@ const HomeTab = () => {
             tabBarIcon: () => (
               <FontAwesome5 name="user-alt" size={24} color="black" />
             ),
-            }} />
+            }} 
+        />
+
+        <Tab.Screen
+          name="Image"
+          component={ImageScreen}
+          options={{
+            title: 'Imagen al azar',
+            headerStyle: {
+              backgroundColor: 'purple',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerTitleAlign: 'center',
+            tabBarIcon: () => (
+              <FontAwesome5 name="random" size={24} color="black" />
+            ),
+            }} 
+        />
+
       </Tab.Navigator>
 
     </NavigationContainer>
