@@ -8,6 +8,7 @@ import LoginScreen from './screens/LoginScreen';
 import MenuScreen from './screens/MenuScreen';
 import StudentScreen from './screens/StudentScreen';
 import ImageScreen from './screens/ImageScreen';
+import WeatherScreen from './screens/WeatherScreen';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 
@@ -18,6 +19,26 @@ const HomeTab = () => {
     <NavigationContainer>
 
       <Tab.Navigator>
+
+        <Tab.Screen
+          name="Weather"
+          component={WeatherScreen}
+          options={{
+            title: 'El Clima de hoy',
+            headerStyle: {
+              backgroundColor: 'gray',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerTitleAlign: 'center',
+            tabBarIcon: () => (
+              <FontAwesome5 name="cloud-sun" size={24} color="black" />
+            ),
+            }} 
+        />
+
         <Tab.Screen
           name="Alumno"
           component={StudentScreen}
@@ -75,6 +96,8 @@ const HomeTab = () => {
             ),
             }} 
         />
+
+        
 
       </Tab.Navigator>
 
