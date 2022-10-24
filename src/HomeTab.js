@@ -11,6 +11,7 @@ import ImageScreen from './screens/ImageScreen';
 import WeatherScreen from './screens/WeatherScreen';
 
 import { FontAwesome5 } from '@expo/vector-icons';
+import ButtonScreen from './screens/ButtonScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,25 @@ const HomeTab = () => {
     <NavigationContainer>
 
       <Tab.Navigator>
+
+        <Tab.Screen
+          name="Buttons"
+          component={ButtonScreen}
+          options={{
+            title: 'Botones',
+            headerStyle: {
+              backgroundColor: 'gray',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerTitleAlign: 'center',
+            tabBarIcon: () => (
+              <FontAwesome5 name="hand-pointer" size={24} color="black" />
+            ),
+            }} 
+        />
 
         <Tab.Screen
           name="Weather"
@@ -59,7 +79,7 @@ const HomeTab = () => {
             ),
           }} 
         />
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Login"
           component={LoginScreen}
           options={{
@@ -76,7 +96,7 @@ const HomeTab = () => {
               <FontAwesome5 name="user-alt" size={24} color="black" />
             ),
             }} 
-        />
+        /> */}
 
         <Tab.Screen
           name="Image"
