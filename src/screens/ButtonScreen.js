@@ -8,13 +8,18 @@ import TextButton from '../components/TextButton';
 const ButtonScreen = ( {navigation} ) => {
 
   const [nombre, setNombre] = useState('');
+  const [contra, setContra] = useState('');
   
   const mensaje = () => {
     alert('Hola');
   }
 
+  const getNombre = () => {
+    alert(nombre)
+  }
+
   const handleChange = ( text ) => {
-    setNombre(...nombre + text);
+    setNombre(text);
     console.log(nombre);
   }
 
@@ -58,25 +63,34 @@ const ButtonScreen = ( {navigation} ) => {
         funct = {irMenu}
       />
 
-      <TextButton
-        text='Aceptar'
-        text_c='darkred'
-        bgc='gold'
-        pdv={10}
-      />
-
       <TextBox
-        place='Nombre completo'
+        place='Usuario'
         mv={5}
         pv={10}
         ph={5}
         c='gray'
-        onChangeT= { handleChange }
+        onChangeT= { setNombre }
+        value={ nombre }
+        kb='email-address'
       />
 
-      <TextInput
-        placeholder='Otra caja'
-        onChangeText={ setNombre }
+      <TextBox
+        place='Contraseña'
+        mv={5}
+        pv={10}
+        ph={5}
+        c='gray'
+        onChangeT= { setContra }
+        value={ contra }
+        pass={true}
+      />
+      
+      <TextButton
+        text='Muestra usuario'
+        text_c='darkred'
+        bgc='gold'
+        pdv={10}
+        funct = { getNombre }
       />
 
     </View>
