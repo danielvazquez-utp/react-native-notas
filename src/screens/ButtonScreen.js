@@ -1,13 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { Alert } from 'react-native-web';
 import IconButton from '../components/IconButton';
+import TextBox from '../components/TextBox';
 import TextButton from '../components/TextButton';
 
 const ButtonScreen = ( {navigation} ) => {
+
+  const [nombre, setNombre] = useState('');
   
   const mensaje = () => {
     alert('Hola');
+  }
+
+  const handleChange = ( text ) => {
+    setNombre(...nombre + text);
+    console.log(nombre);
   }
 
   const irClima = () => { navigation.navigate('Weather') }
@@ -55,6 +63,20 @@ const ButtonScreen = ( {navigation} ) => {
         text_c='darkred'
         bgc='gold'
         pdv={10}
+      />
+
+      <TextBox
+        place='Nombre completo'
+        mv={5}
+        pv={10}
+        ph={5}
+        c='gray'
+        onChangeT= { handleChange }
+      />
+
+      <TextInput
+        placeholder='Otra caja'
+        onChangeText={ setNombre }
       />
 
     </View>
