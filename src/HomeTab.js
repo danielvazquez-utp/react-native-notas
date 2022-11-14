@@ -12,6 +12,7 @@ import WeatherScreen from './screens/WeatherScreen';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import ButtonScreen from './screens/ButtonScreen';
+import ElementScreen from './screens/ElementScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,6 +42,25 @@ const HomeTab = () => {
         />
 
         <Tab.Screen
+          name="Elements"
+          component={ElementScreen}
+          options={{
+            title: 'RN Elements',
+            headerStyle: {
+              backgroundColor: 'gray',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerTitleAlign: 'center',
+            tabBarIcon: () => (
+              <FontAwesome5 name="cubes" size={24} color="black" />
+            ),
+            }} 
+        />
+
+        <Tab.Screen
           name="Weather"
           component={WeatherScreen}
           options={{
@@ -59,7 +79,7 @@ const HomeTab = () => {
             }} 
         />
 
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Alumno"
           component={StudentScreen}
           options={{ 
@@ -68,7 +88,7 @@ const HomeTab = () => {
               <FontAwesome5 name="users" size={24} color="black" />
             ),
           }} 
-        />
+        /> */}
         <Tab.Screen
           name="Menu"
           component={MenuScreen}
@@ -79,14 +99,11 @@ const HomeTab = () => {
             ),
           }} 
         />
-        {/* <Tab.Screen
+        <Tab.Screen
           name="Login"
           component={LoginScreen}
           options={{
-            title: 'Inicio de sesión',
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
+            headerShown: false,
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
@@ -96,7 +113,7 @@ const HomeTab = () => {
               <FontAwesome5 name="user-alt" size={24} color="black" />
             ),
             }} 
-        /> */}
+        />
 
         <Tab.Screen
           name="Image"

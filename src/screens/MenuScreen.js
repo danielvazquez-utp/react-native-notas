@@ -1,7 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import IconButton from '../components/IconButton';
 
 const MenuScreen = ( {navigation} ) => {
+
+    const goLogin = () =>{
+        navigation.navigate('Login');
+    }
+
     return (
         <View 
             style={{ 
@@ -22,6 +28,12 @@ const MenuScreen = ( {navigation} ) => {
                     Ir a Alumno
                 </Text>
             </TouchableOpacity>
+
+            <IconButton
+                text='Login'
+                funct={ goLogin }
+            />
+
         </View>
     );
 }
